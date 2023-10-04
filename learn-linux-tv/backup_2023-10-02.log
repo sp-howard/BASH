@@ -1,0 +1,14 @@
+sending incremental file list
+created directory backup//current
+./
+arguments.sh
+backup.sh
+backup_2023-10-02.log
+case.sh
+functions.sh
+job_results.log
+schedule.sh
+backup/
+
+sent 339 bytes  received 82 bytes  280.67 bytes/sec
+total size is 2,615  speedup is 6.21 (DRY RUN)
