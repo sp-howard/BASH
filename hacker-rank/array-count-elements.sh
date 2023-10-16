@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Q: Given a list of countries, each on a new line, your task is to read them into an array and then display the entire array, with a space between each of the countries' names. 
+# Q: Given a list of countries, each on a new line, your task is to read them into an array and then display the count of elements in that array.
 
 # Initilize an array wityh an empty string
 array[0]=''
@@ -17,8 +17,5 @@ do
     ((increment++))
 done
 
-# Output entire array seperated by spaces
-
-concatArray=("${array[@]}" "${array[@]}" "${array[@]}")
-
-echo ${concatArray[@]}
+# Displays number of elements in the array
+echo ${#array[@]}
