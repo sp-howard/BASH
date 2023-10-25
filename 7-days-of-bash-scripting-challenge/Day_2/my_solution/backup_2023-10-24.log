@@ -1,0 +1,21 @@
+sending incremental file list
+drwxrwxr-x          4,096 2023/10/24 19:23:42 .
+-rw-rw-r--              7 2023/10/24 19:23:34 test1.txt
+-rw-rw-r--              0 2023/10/24 19:23:42 test2.txt
+
+sent 105 bytes  received 184 bytes  578.00 bytes/sec
+total size is 7  speedup is 0.02 (DRY RUN)
+sending incremental file list
+drwxrwxr-x          4,096 2023/10/24 19:23:42 .
+-rw-rw-r--              7 2023/10/24 19:23:34 test1.txt
+-rw-rw-r--              0 2023/10/24 19:23:42 test2.txt
+
+sent 105 bytes  received 184 bytes  578.00 bytes/sec
+total size is 7  speedup is 0.02 (DRY RUN)
+sending incremental file list
+drwxrwxr-x          4,096 2023/10/24 19:23:42 .
+-rw-rw-r--              7 2023/10/24 19:23:34 test1.txt
+-rw-rw-r--              0 2023/10/24 19:23:42 test2.txt
+
+sent 105 bytes  received 184 bytes  578.00 bytes/sec
+total size is 7  speedup is 0.02
