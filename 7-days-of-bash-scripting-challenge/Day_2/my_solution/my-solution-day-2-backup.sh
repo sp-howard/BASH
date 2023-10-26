@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 # Backup Directory w/ Rotation (Retain Last 3 Backups)
 
@@ -11,9 +10,6 @@ then
     exit 1
 fi
 
-# Set the first argument as the directory to be backed up
-directory=$1
-
 # Check to see if rsync is installed
 if ! command -v rsync > /dev/null 2>&1
 then
@@ -22,13 +18,41 @@ then
     exit 2
 fi
 
-# Capture the current date and store it in YYYY-MM-DD format
-current_date=$(date +%Y-%m-%d)
+# Checks if backup and log folder exist
+if [ ! -d "backups" ];
+then
+    mkdir "backups"
+fi
 
-# With dry-ruin for testing
+if [ ! -d "backups/logs" ];
+then
+    mkdir "backups/logs"
+fi
+
+# Capture the current date and store it in YYYY-MM-DD format
+current_date=$(date +%Y-%m-%d_%H-%M-%S)
+
+# Set the first argument as the directory to be backed up
+directory=$1
+
+# Set backup destination
+destination="./backups/$1-$current_date"
+
+# With dry-run for testing
 # rsync_options="-avb --backup-dir ./Backups --delete --dry-run"
 
 # Without dry run
-rsync_options="-avb --backup-dir ./backups --delete"
+rsync_options="-avb"
 
-$(which rsync) $rsync_options $1 >> backup_$current_date.log
+# Backup command
+$(which rsync) $rsync_options $directory $destination >> ./backups/logs/$1-$current_date.log
+
+# Keep the 3 latest backups. Gets a list of directories, excluding the three most recent, and deletes them. 
+for backup_dir in $(ls ./backups | sort | head -n -3);
+do
+    # prevent log folder from being removed
+    if [ $backup_dir != "logs" ]
+    then
+        rm -rf "./backups/$backup_dir"
+    fi
+done
