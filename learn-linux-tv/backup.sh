@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Check to make sure user has enetred exactly two arguments
+# Check to make sure user has entered exactly two arguments
 if [ $# -ne 2 ]
 then
     echo "Usage: backup.sh <source_directory> <target_directory>"
