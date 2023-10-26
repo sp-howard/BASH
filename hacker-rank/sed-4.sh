@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# https://www.hackerrank.com/challenges/text-processing-in-linux-the-sed-command-3/problem?isFullScreen=true
+# https://www.hackerrank.com/challenges/sed-command-4/problem?isFullScreen=true
 
-# Q: Given lines of credit card numbers, mask the first 12 digits of each credit card number with an asterisk (i.e., *) and print the masked card number on a new line. Each credit card number consists of four space-separated groups of four digits. For example, the credit card number 1234 5678 9101 1234 would be masked and printed as **** **** **** 1234.
-sed -e 's/[Tt]hy/{&}/g'
+#  The first three occurances on eahc line end with a space, but the last one doesn't.
+
+sed 's/[0-9]\{4\} /**** /g'
