@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# https://www.hackerrank.com/challenges/text-processing-in-linux-the-sed-command-3/problem?isFullScreen=true
+# https://www.hackerrank.com/challenges/sed-command-4/problem?isFullScreen=true
 
-# Q: Given an input file, in each line, highlight all the occurrences of 'thy' by wrapping them up in brace brackets. The search should be case-insensitive.
+#  The first three occurances on eahc line end with a space, but the last one doesn't.
 
-sed -e 's/[Tt]hy/{&}/g'
+sed 's/[0-9]\{4\} /**** /g'
