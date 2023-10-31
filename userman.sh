@@ -11,7 +11,7 @@
 
 account_creation() {
 
-    #Prompt for username if name is not passed to function
+    # Prompt for username if not passed to function
     if [ $# -eq 1 ]; then
         username=$1
     else
@@ -26,6 +26,7 @@ account_creation() {
     fi
 
     useradd $username
+
     # Check if useradd command completes
     if [ $? -ne 0 ]; then
         echo "Failed to add user. Try running with super user privileges."
@@ -41,7 +42,7 @@ account_creation() {
 
 account_deletion() {
 
-    #Prompt for username if name is not passed to function
+    # Prompt for username if not passed to function
     if [ $# -eq 1 ]; then
         username=$1
     else
@@ -49,6 +50,7 @@ account_deletion() {
     fi
 
     userdel $username
+
     # Check if userdel command completes
     if [ $? -ne 0 ]; then
         echo "Failed to delete user."
@@ -64,7 +66,7 @@ account_deletion() {
 
 password_reset() {
 
-    #Prompt for username if name is not passed to function
+    # Prompt for username if not passed to function
     if [ $# -eq 1 ]; then
         username=$1
     else
@@ -72,6 +74,7 @@ password_reset() {
     fi
 
     passwd $username
+
     # Check if passwd command completes
     if [ $? -ne 0 ]; then
         echo "Failed to reset password for $username."
@@ -163,7 +166,7 @@ MANPAGE
 # Validate options
 options=$(getopt -o cdrlh --long create:,delete:,reset:,list,help  -- "$@")
 
-# Atleast one option should be used
+# Require at least one option
 [ $? -eq 0 ] || { 
     echo "Incorrect options provided"
     exit 1
